@@ -18,8 +18,8 @@
   },
   "scripts": {
     "start": "webpack-dev-server --port 9000 --inline --progress --profile --colors --watch --content-base src/ --mode development",
-    "build": "rm -rf dist && rollup --config",
-    "build.prod": "rm -rf dist && rollup --config",
+    "build": "rm -rf dist && rollup --config -m",
+    "build.prod": "rm -rf dist && rollup --config -m",
     "cleanup": "shx rm -rf umd lib lib-esm lib-fesm typings coverage ../iteratez-pages/docs",
     "docs": "typedoc -p . --readme README.md --theme minimal --mode file --target 'es5' --excludeNotExported --excludePrivate --ignoreCompilerErrors --exclude \"**/src/**/__tests__/*.*\" --out ../dayspan-pages/docs src/ && cp -R examples ../dayspan-pages/ && cp -R umd ../dayspan-pages/ && cp -R node_modules/moment/min ../dayspan-pages/node_modules/moment/",
     "test": "jest",

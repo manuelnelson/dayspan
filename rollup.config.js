@@ -3,7 +3,7 @@ export default {
   input: 'src/index.ts',
   output: {
     file: 'dist/dayspan.js',
-    format: 'cjs'
+    format: 'cjs',
   },
   plugins: [typescript()]
 };
