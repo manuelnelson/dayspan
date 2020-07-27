@@ -16,9 +16,10 @@
     "forceConsistentCasingInFileNames": true,
     "pretty": true,
     "sourceMap": true,
-    "outDir": "lib",
-    "declaration": true,
-    "declarationDir": "typings",
+    // "outDir": "lib",
+    "rootDir": "src",
+    // "declaration": true,
+    // "declarationDir": "typings",
     "stripInternal": true,
     "noUnusedLocals": true
   },

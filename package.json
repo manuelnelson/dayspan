@@ -1,15 +1,16 @@
 {
-  "name": "dayspan",
+  "name": "dayspan-esbuild",
   "version": "1.1.0",
   "description": "A date & schedule library to use for advanced calendars in TypeScript and JS",
   "main": "dist/dayspan.js",
   "typings": "typings/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://www.github.com/ClickerMonkey/dayspan"
+    "url": "https://www.github.com/manuelnelson/dayspan"
   },
   "authors": [
-    "Philip Diffenderfer <pdiffenderfer@gmail.com>"
+    "Philip Diffenderfer <pdiffenderfer@gmail.com>",
+    "Emmanuel Nelson <info@emmanuelnelson.com>"
   ],
   "license": "MIT",
   "engines": {
@@ -17,10 +18,9 @@
   },
   "scripts": {
     "start": "webpack-dev-server --port 9000 --inline --progress --profile --colors --watch --content-base src/ --mode development",
-    "build": "webpack --config webpack.config.js --mode production",
-    "build.prod": "webpack --config webpack.config.js -p",
+    "build": "rm -rf dist && rollup --config",
+    "build.prod": "rm -rf dist && rollup --config",
     "cleanup": "shx rm -rf umd lib lib-esm lib-fesm typings coverage ../iteratez-pages/docs",
-    "prebuild": "npm run cleanup && npm run verify",
     "docs": "typedoc -p . --readme README.md --theme minimal --mode file --target 'es5' --excludeNotExported --excludePrivate --ignoreCompilerErrors --exclude \"**/src/**/__tests__/*.*\" --out ../dayspan-pages/docs src/ && cp -R examples ../dayspan-pages/ && cp -R umd ../dayspan-pages/ && cp -R node_modules/moment/min ../dayspan-pages/node_modules/moment/",
     "test": "jest",
     "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
@@ -51,6 +51,7 @@
     ]
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "5.0.2",
     "@types/jest": "24.0.11",
     "@types/node": "11.13.4",
     "awesome-typescript-loader": "5.2.1",
@@ -74,7 +75,6 @@
     "tslint-loader": "3.5.4",
     "tslint-react": "4.0.0",
     "typedoc": "0.14.2",
-    "typescript": "3.4.3",
     "uglify-js": "3.5.4",
     "uglifyjs-webpack-plugin": "2.1.2",
     "validate-commit-msg": "2.14.0",
@@ -84,6 +84,7 @@
     "webpack-dev-server": "3.1.4"
   },
   "dependencies": {
-    "iteratez": "1.2.2"
+    "iteratez": "1.2.2",
+    "typescript": "3.9.7"
   }
 }
